@@ -16,8 +16,25 @@ namespace Eduardo01.VISTA
         public FrmUsuarios()
         {
             InitializeComponent();
+            Carga();
         }
+        void Carga()
+        {
+            dataGridView1.Rows.Clear();
 
+            using (programacionEntities db = new programacionEntities())
+            {
+                var Lista = db.UserList.ToList();
+
+                foreach (var iteracion in Lista)
+                {
+
+                    dataGridView1.Rows.Add(iteracion.Id,iteracion.NombreUsuario,iteracion.Apellido,iteracion.Edad,iteracion.Pass);
+                }
+            }
+
+
+        }
         private void button1_Click(object sender, EventArgs e)
         {
             using (programacionEntities db = new programacionEntities()) {
@@ -26,28 +43,52 @@ namespace Eduardo01.VISTA
 
                 userList.NombreUsuario = trexnam.Text;
                 userList.Apellido = trexap.Text;
-                userList.Edad = Convert.ToInt32 (Txtedad);
+                userList.Edad = (Convert.ToInt32 (Txtedad));
                 userList.Pass = txtpassd.Text;
                 db.UserList.Add(userList);
                 db.SaveChanges();
             
             
             }
+            Carga();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             using (programacionEntities db = new programacionEntities())
             {
-
-                UserList userList = new UserList();
-                int Eliminar = Convert.ToInt32(trexnam.Text);
-                userList = db.UserList.Find(Eliminar);
+                int Eliminar = Convert.ToInt32(txtid.Text);
+                UserList userList = db.UserList.Where(x => x.Id == Eliminar).Select(x => x).FirstOrDefault();
+                //int Eliminar = Convert.ToInt32(txtid.Text);
+                //userList = db.UserList.Find(Eliminar);
                 db.UserList.Remove(userList);
                 db.SaveChanges();
 
 
             }
+            Carga();
         }
+
+        private void Buttomact_Click(object sender, EventArgs e)
+        {
+            try {
+            using (programacionEntities db = new programacionEntities())
+            {
+            //int update = Convert.ToInt32(txtid.Text);
+            UserList user = db.UserList.Where(x => x.Id == 3).Select(x => x).FirstOrDefault();
+                user.NombreUsuario = trexnam.Text;
+                user.Apellido = trexap.Text;
+                user.Edad = Convert.ToInt32(Txtedad.Text);
+                user.Pass = txtpassd.Text;
+                db.SaveChanges();
+            }
+            }
+            catch (Exception ex) {
+
+                MessageBox.Show(ex.ToString());
+            }
+            Carga();
+        }
+
     }
 }

@@ -35,5 +35,17 @@ namespace Eduardo01.VISTA
         {
 
         }
+
+        private void conexionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cRUDToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmUsuarios frm = new FrmUsuarios();
+            frm.MdiParent = this;
+            frm.Show();
+        }
     }
 }

@@ -42,13 +42,13 @@ namespace Eduardo01.VISTA
             this.label5 = new System.Windows.Forms.Label();
             this.txtid = new System.Windows.Forms.TextBox();
             this.Buttomact = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dtgListaUsuarios = new System.Windows.Forms.DataGridView();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgListaUsuarios)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -65,21 +65,21 @@ namespace Eduardo01.VISTA
             // 
             this.trexnam.Location = new System.Drawing.Point(119, 42);
             this.trexnam.Name = "trexnam";
-            this.trexnam.Size = new System.Drawing.Size(365, 20);
+            this.trexnam.Size = new System.Drawing.Size(323, 20);
             this.trexnam.TabIndex = 1;
             // 
             // trexap
             // 
             this.trexap.Location = new System.Drawing.Point(119, 80);
             this.trexap.Name = "trexap";
-            this.trexap.Size = new System.Drawing.Size(354, 20);
+            this.trexap.Size = new System.Drawing.Size(323, 20);
             this.trexap.TabIndex = 2;
             // 
             // Txtedad
             // 
             this.Txtedad.Location = new System.Drawing.Point(118, 123);
             this.Txtedad.Name = "Txtedad";
-            this.Txtedad.Size = new System.Drawing.Size(192, 20);
+            this.Txtedad.Size = new System.Drawing.Size(324, 20);
             this.Txtedad.TabIndex = 3;
             // 
             // txtpassd
@@ -148,7 +148,7 @@ namespace Eduardo01.VISTA
             // 
             this.txtid.Location = new System.Drawing.Point(118, 6);
             this.txtid.Name = "txtid";
-            this.txtid.Size = new System.Drawing.Size(360, 20);
+            this.txtid.Size = new System.Drawing.Size(324, 20);
             this.txtid.TabIndex = 11;
             // 
             // Buttomact
@@ -161,23 +161,24 @@ namespace Eduardo01.VISTA
             this.Buttomact.UseVisualStyleBackColor = true;
             this.Buttomact.Click += new System.EventHandler(this.Buttomact_Click);
             // 
-            // dataGridView1
+            // dtgListaUsuarios
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dtgListaUsuarios.AllowUserToAddRows = false;
+            this.dtgListaUsuarios.AllowUserToDeleteRows = false;
+            this.dtgListaUsuarios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtgListaUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgListaUsuarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column5,
             this.Column1,
             this.Column2,
             this.Column3,
             this.Column4});
-            this.dataGridView1.Location = new System.Drawing.Point(51, 209);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(680, 134);
-            this.dataGridView1.TabIndex = 13;
+            this.dtgListaUsuarios.Location = new System.Drawing.Point(51, 209);
+            this.dtgListaUsuarios.Name = "dtgListaUsuarios";
+            this.dtgListaUsuarios.ReadOnly = true;
+            this.dtgListaUsuarios.Size = new System.Drawing.Size(680, 134);
+            this.dtgListaUsuarios.TabIndex = 13;
+            this.dtgListaUsuarios.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgListaUsuarios_CellClick);
             // 
             // Column5
             // 
@@ -214,7 +215,7 @@ namespace Eduardo01.VISTA
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dtgListaUsuarios);
             this.Controls.Add(this.Buttomact);
             this.Controls.Add(this.txtid);
             this.Controls.Add(this.label5);
@@ -229,8 +230,9 @@ namespace Eduardo01.VISTA
             this.Controls.Add(this.trexnam);
             this.Controls.Add(this.button1);
             this.Name = "FrmUsuarios";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmUsuarios";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgListaUsuarios)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -251,7 +253,7 @@ namespace Eduardo01.VISTA
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtid;
         private System.Windows.Forms.Button Buttomact;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dtgListaUsuarios;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;

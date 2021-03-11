@@ -17,10 +17,24 @@ namespace Eduardo01.VISTA
         {
             InitializeComponent();
             Carga();
+            Clear();
+        }
+
+        void Clear()
+        {
+
+            txtid.Clear();
+            //trexnam.Text = "";
+            //trexap.Text = null;
+            trexnam.Clear();
+            trexap.Clear();
+            Txtedad.Clear();
+            txtpassd.Clear();
+
         }
         void Carga()
         {
-            dataGridView1.Rows.Clear();
+            dtgListaUsuarios.Rows.Clear();
 
             using (programacionEntities db = new programacionEntities())
             {
@@ -29,7 +43,7 @@ namespace Eduardo01.VISTA
                 foreach (var iteracion in Lista)
                 {
 
-                    dataGridView1.Rows.Add(iteracion.Id,iteracion.NombreUsuario,iteracion.Apellido,iteracion.Edad,iteracion.Pass);
+                    dtgListaUsuarios.Rows.Add(iteracion.Id,iteracion.NombreUsuario,iteracion.Apellido,iteracion.Edad,iteracion.Pass);
                 }
             }
 
@@ -51,6 +65,7 @@ namespace Eduardo01.VISTA
             
             }
             Carga();
+            Clear();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -67,6 +82,7 @@ namespace Eduardo01.VISTA
 
             }
             Carga();
+            Clear();
         }
 
         private void Buttomact_Click(object sender, EventArgs e)
@@ -88,7 +104,30 @@ namespace Eduardo01.VISTA
                 MessageBox.Show(ex.ToString());
             }
             Carga();
+            Clear();
         }
 
+        private void dtgListaUsuarios_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            String Id = dtgListaUsuarios.CurrentRow.Cells[0].Value.ToString();
+            String Nombre = dtgListaUsuarios.CurrentRow.Cells[1].Value.ToString();
+            String Apellido = dtgListaUsuarios.CurrentRow.Cells[2].Value.ToString();
+            String Edad = dtgListaUsuarios.CurrentRow.Cells[3].Value.ToString();
+            String Password = dtgListaUsuarios.CurrentRow.Cells[4].Value.ToString();
+
+
+            txtid.Text = Id;
+            trexnam.Text = Nombre;
+            trexap.Text = Apellido;
+            Txtedad.Text = Edad;
+            txtpassd.Text = Password;
+
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Clear();
+        }
     }
 }

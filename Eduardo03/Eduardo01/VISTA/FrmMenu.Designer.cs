@@ -34,6 +34,9 @@ namespace Eduardo01.VISTA
             this.acercaDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clickParaMasInformacionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.arreglosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.matematicasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.conexionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cRUDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -41,7 +44,9 @@ namespace Eduardo01.VISTA
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.acercaDeToolStripMenuItem,
-            this.arreglosToolStripMenuItem});
+            this.arreglosToolStripMenuItem,
+            this.matematicasToolStripMenuItem,
+            this.conexionesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(493, 24);
@@ -71,6 +76,28 @@ namespace Eduardo01.VISTA
             this.arreglosToolStripMenuItem.Text = "Arreglos";
             this.arreglosToolStripMenuItem.Click += new System.EventHandler(this.arreglosToolStripMenuItem_Click);
             // 
+            // matematicasToolStripMenuItem
+            // 
+            this.matematicasToolStripMenuItem.Name = "matematicasToolStripMenuItem";
+            this.matematicasToolStripMenuItem.Size = new System.Drawing.Size(87, 20);
+            this.matematicasToolStripMenuItem.Text = "Matematicas";
+            // 
+            // conexionesToolStripMenuItem
+            // 
+            this.conexionesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cRUDToolStripMenuItem});
+            this.conexionesToolStripMenuItem.Name = "conexionesToolStripMenuItem";
+            this.conexionesToolStripMenuItem.Size = new System.Drawing.Size(96, 20);
+            this.conexionesToolStripMenuItem.Text = "ConexionesBD";
+            this.conexionesToolStripMenuItem.Click += new System.EventHandler(this.conexionesToolStripMenuItem_Click);
+            // 
+            // cRUDToolStripMenuItem
+            // 
+            this.cRUDToolStripMenuItem.Name = "cRUDToolStripMenuItem";
+            this.cRUDToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cRUDToolStripMenuItem.Text = "CRUD";
+            this.cRUDToolStripMenuItem.Click += new System.EventHandler(this.cRUDToolStripMenuItem_Click);
+            // 
             // FrmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -95,5 +122,8 @@ namespace Eduardo01.VISTA
         private System.Windows.Forms.ToolStripMenuItem acercaDeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem clickParaMasInformacionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem arreglosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem matematicasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem conexionesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cRUDToolStripMenuItem;
     }
 }

@@ -11,6 +11,6 @@ namespace Eduardo01.DAO
 
       public  String[] user = new string[3] { "Eduardo", "Pablo", "Jose" };
       public  String[] pass = new string[] { "12", "123", "1234" };
-        internal object users;
+    
     }
 }

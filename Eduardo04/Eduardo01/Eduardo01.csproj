@@ -55,6 +55,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAO\ClsDUserList.cs" />
     <Compile Include="DAO\ClsListaUsuario.cs" />
     <Compile Include="DOMINIO\Login.cs" />
     <Compile Include="MODEL\Model1.Context.cs">

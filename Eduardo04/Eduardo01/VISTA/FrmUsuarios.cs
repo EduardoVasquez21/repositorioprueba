@@ -1,4 +1,5 @@
-﻿using Eduardo01.MODEL;
+﻿using Eduardo01.DAO;
+using Eduardo01.MODEL;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,8 +25,6 @@ namespace Eduardo01.VISTA
         {
 
             txtid.Clear();
-            //trexnam.Text = "";
-            //trexap.Text = null;
             trexnam.Clear();
             trexap.Clear();
             Txtedad.Clear();
@@ -36,33 +35,39 @@ namespace Eduardo01.VISTA
         {
             dtgListaUsuarios.Rows.Clear();
 
-            using (programacionEntities db = new programacionEntities())
+            ClsDUserList clsDUserList = new ClsDUserList();
+            List<UserList> Lista = clsDUserList.cargarDatosUserlist();
+
+            foreach (var iteracion in Lista)
             {
-                var Lista = db.UserList.ToList();
 
-                foreach (var iteracion in Lista)
-                {
-
-                    dtgListaUsuarios.Rows.Add(iteracion.Id,iteracion.NombreUsuario,iteracion.Apellido,iteracion.Edad,iteracion.Pass);
-                }
+                dtgListaUsuarios.Rows.Add(iteracion.Id, iteracion.NombreUsuario, iteracion.Apellido, iteracion.Edad, iteracion.Pass);
             }
-
 
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            using (programacionEntities db = new programacionEntities()) {
+            if (txtid.Text.Equals("")) { 
+            ClsDUserList clsDUserList = new ClsDUserList();
+            //clsDUserList.SaveDatosUser(trexnam.Text,trexap.Text, Convert.ToInt32(Txtedad.Text),txtpassd.Text);
+            UserList userList = new UserList();
+            userList.NombreUsuario = trexnam.Text;
+            userList.Apellido = trexap.Text;
+            userList.Edad = Convert.ToInt32(Txtedad.Text);
+            userList.Pass = txtpassd.Text;
+            clsDUserList.SaveDatosUser(userList);
+        }else{
+
+                ClsDUserList clsDUserList = new ClsDUserList();
 
                 UserList userList = new UserList();
-
+                userList.Id = Convert.ToInt32(txtid.Text);
                 userList.NombreUsuario = trexnam.Text;
                 userList.Apellido = trexap.Text;
-                userList.Edad = (Convert.ToInt32 (Txtedad));
+                userList.Edad = Convert.ToInt32(Txtedad.Text);
                 userList.Pass = txtpassd.Text;
-                db.UserList.Add(userList);
-                db.SaveChanges();
-            
-            
+                clsDUserList.updateUser(userList);
+
             }
             Carga();
             Clear();
@@ -70,39 +75,15 @@ namespace Eduardo01.VISTA
 
         private void button2_Click(object sender, EventArgs e)
         {
-            using (programacionEntities db = new programacionEntities())
-            {
-                int Eliminar = Convert.ToInt32(txtid.Text);
-                UserList userList = db.UserList.Where(x => x.Id == Eliminar).Select(x => x).FirstOrDefault();
-                //int Eliminar = Convert.ToInt32(txtid.Text);
-                //userList = db.UserList.Find(Eliminar);
-                db.UserList.Remove(userList);
-                db.SaveChanges();
-
-
-            }
+            ClsDUserList user = new ClsDUserList();
+            user.deleteUser(Convert.ToInt32(txtid.Text));
             Carga();
             Clear();
         }
 
         private void Buttomact_Click(object sender, EventArgs e)
         {
-            try {
-            using (programacionEntities db = new programacionEntities())
-            {
-            //int update = Convert.ToInt32(txtid.Text);
-            UserList user = db.UserList.Where(x => x.Id == 3).Select(x => x).FirstOrDefault();
-                user.NombreUsuario = trexnam.Text;
-                user.Apellido = trexap.Text;
-                user.Edad = Convert.ToInt32(Txtedad.Text);
-                user.Pass = txtpassd.Text;
-                db.SaveChanges();
-            }
-            }
-            catch (Exception ex) {
 
-                MessageBox.Show(ex.ToString());
-            }
             Carga();
             Clear();
         }
@@ -125,9 +106,19 @@ namespace Eduardo01.VISTA
 
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            Clear();
-        }
+        //private void button3_Click(object sender, EventArgs e)
+        //{
+        //    ClsDUserList clsDUserList = new ClsDUserList();
+            
+        //    UserList userList = new UserList();
+        //    userList.Id = Convert.ToInt32 (txtid.Text);
+        //    userList.NombreUsuario = trexnam.Text;
+        //    userList.Apellido = trexap.Text;
+        //    userList.Edad = Convert.ToInt32(Txtedad.Text);
+        //    userList.Pass = txtpassd.Text;
+        //    ClsDUserList.updateUser();
+        //    Carga();
+        //    Clear();
+        //}
     }
 }

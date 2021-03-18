@@ -41,7 +41,6 @@ namespace Eduardo01.VISTA
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txtid = new System.Windows.Forms.TextBox();
-            this.Buttomact = new System.Windows.Forms.Button();
             this.dtgListaUsuarios = new System.Windows.Forms.DataGridView();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -146,20 +145,11 @@ namespace Eduardo01.VISTA
             // 
             // txtid
             // 
+            this.txtid.Enabled = false;
             this.txtid.Location = new System.Drawing.Point(118, 6);
             this.txtid.Name = "txtid";
             this.txtid.Size = new System.Drawing.Size(324, 20);
             this.txtid.TabIndex = 11;
-            // 
-            // Buttomact
-            // 
-            this.Buttomact.Location = new System.Drawing.Point(489, 358);
-            this.Buttomact.Name = "Buttomact";
-            this.Buttomact.Size = new System.Drawing.Size(168, 51);
-            this.Buttomact.TabIndex = 12;
-            this.Buttomact.Text = "Update";
-            this.Buttomact.UseVisualStyleBackColor = true;
-            this.Buttomact.Click += new System.EventHandler(this.Buttomact_Click);
             // 
             // dtgListaUsuarios
             // 
@@ -173,10 +163,10 @@ namespace Eduardo01.VISTA
             this.Column2,
             this.Column3,
             this.Column4});
-            this.dtgListaUsuarios.Location = new System.Drawing.Point(51, 209);
+            this.dtgListaUsuarios.Location = new System.Drawing.Point(39, 215);
             this.dtgListaUsuarios.Name = "dtgListaUsuarios";
             this.dtgListaUsuarios.ReadOnly = true;
-            this.dtgListaUsuarios.Size = new System.Drawing.Size(680, 134);
+            this.dtgListaUsuarios.Size = new System.Drawing.Size(445, 134);
             this.dtgListaUsuarios.TabIndex = 13;
             this.dtgListaUsuarios.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgListaUsuarios_CellClick);
             // 
@@ -214,9 +204,8 @@ namespace Eduardo01.VISTA
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(583, 450);
             this.Controls.Add(this.dtgListaUsuarios);
-            this.Controls.Add(this.Buttomact);
             this.Controls.Add(this.txtid);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -252,7 +241,6 @@ namespace Eduardo01.VISTA
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtid;
-        private System.Windows.Forms.Button Buttomact;
         private System.Windows.Forms.DataGridView dtgListaUsuarios;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;

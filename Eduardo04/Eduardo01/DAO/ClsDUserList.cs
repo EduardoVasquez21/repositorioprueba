@@ -106,7 +106,7 @@ namespace Eduardo01.DAO
                 using (programacionEntities db = new programacionEntities())
                 {
                     int update = Convert.ToInt32(user.Id);
-                    UserList userList = db.UserList.Where(x => x.Id == 3).Select(x => x).FirstOrDefault();
+                    UserList userList = db.UserList.Where(x => x.Id == update).Select(x => x).FirstOrDefault();
 
 
                     userList.NombreUsuario = user.NombreUsuario;
